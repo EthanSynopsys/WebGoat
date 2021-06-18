@@ -44,5 +44,24 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         run: mvn clean install
+        
+      - name: Synopsys Polaris SAST Check
+        # You may pin to the exact commit or the version.
+        # uses: loadbalancerorg/polaris-action@a75ee1c55b503ddbe868d7d4668af895fbfe2fdd
+        uses: loadbalancerorg/polaris-action@v2
+        with:
+          # URL of the polaris server instance
+          server_url: https://sipse.polaris.synopsys.com/
+          # Access token for accessing the polaris server instance
+          access_token: POLARIS_TOKEN
+          # A count of total issues
+          total_issues: 0
+          # A count of new issues
+          new_issues: 0
+          # The cli-scan.json file location
+          cli_scan_json_file: .synopsys/polaris/cli-scan.json
+          # Additional command line options
+          command_opts: # optional, default is 
+
 
 
