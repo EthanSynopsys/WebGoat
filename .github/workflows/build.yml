@@ -53,7 +53,7 @@ jobs:
           # URL of the polaris server instance
           server_url: https://sipse.polaris.synopsys.com/
           # Access token for accessing the polaris server instance
-          access_token: secrets.POLARIS_TOKEN
+          access_token: ${{ secrets.POLARIS_TOKEN }}
           # A count of total issues
           total_issues: 0
           # A count of new issues
